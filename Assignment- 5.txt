@@ -1,0 +1,179 @@
+Assignment- 5
+
+Part -A
+
+Que-1)Difference between default, parameterized, and copy constructors.
+	Default constructor - Default constructor is a constructor that takes no parameter.
+			      Default constructor is used to initialize the object with default values.
+			      Java provide default constructor automatically if you don't write any constructor. Once you create any 				      constructor, Java won't create the default constructor.	
+
+	Parameterized constructor - Parameterized constructor is a constructor that take parameters.
+				    It is used to initialize object with user values while creating object.
+				    Java dont provide parameterized constructor automatically if you don't write any constructor.
+
+	Copy Constructor - A copy constructor is a constructor that create  new object by copying the data of an existing object of the    			   same class.
+			   it is used to create duplicate of object.
+			   java dont provide copy constructor by default.
+
+Que-2)What is the use of the this keyword?
+	this is a reference variable that refer to the current object of a class.
+        It is used to differentiate instance variable from local variables in constructor.
+        It is used to call Current object, constructor, variable, method.
+
+Que-3)What is the use of the super keyword?
+	super is a reference variable that refers to the parent class object.
+	It is used to call parent object constructor, method, variable.
+        it cannot be used in static area.
+
+Que-4)What is a static keyword used for?
+	Static keyword belongs to the class, not to object. to access static data, there is no need to create the object. It can be                	accessed using class name.
+ 	Static keyword is applicable to variable, method, block, and inner class.	
+	If a variable is declared as a static, only one copy is created, and it is shared among all objects of a class.
+	if mathod is declarded as static, method is loaded at a class loading time. It only can access a static data, and it cannot be 	overridden.
+	If a block is static, then it will execute once at when the class is loaded. And it is used to initialize static data.
+
+
+Que-5)What are static blocks and static methods?
+	Static block - Static block is a block of code that execute once when class is loaded into memory.
+		       it is executed before main method.
+		       it is used to initialize static data.
+		       it cannot be accessed non-static member.
+
+	Static method - Static method belong to the class. It can be accessed by class name without creating object.
+			It can only access static data.
+			This and super keyword cannot be used inside static method.
+			Static method cannot be overridden, but it can method hiding.	
+
+
+Part -B
+
+Que-1)Write a program to find sum of n natural numbers.
+import java.util.Scanner;
+public class SumOfNaturalNum {
+	public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter a N : ");
+		int n = sc.nextInt();
+		int sum = n*(n+1)/2;
+
+		System.out.println("The Sum of "+ n + " Natural Numbers : " + sum);
+
+	}
+}
+
+Output - 
+Enter a N :
+10
+The Sum of 10 Natural Numbers : 55
+
+Que-2)Write a program to reverse a String.
+import java.util.Scanner;
+
+public class ReverseString {
+	public static void main(String[] ar) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter a String : ");
+		String str = sc.next();
+		
+		String reversed = new StringBuilder(str).reverse().toString();
+
+		System.out.println("Reversed String : " + reversed);
+
+	}
+}
+Output - 
+Enter a String :
+hello
+Reversed String : olleh
+
+Que-3)Write a program to check if a String is palindrome.
+import java.util.Scanner;
+public class IsPalindromeString {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter a String : ");
+		String str = sc.next();
+
+		String reversed = new StringBuilder(str).reverse().toString();
+
+		if(str.equals(reversed))
+			System.out.println("Palindrome !!");
+		else
+			System.out.println("Not Palindrome !!");
+
+	}
+}
+
+Output -
+Enter a String : madam
+Palindrome !!
+
+Que-4)Write a program to count vowels and consonants in a String.
+import java.util.Scanner;
+
+public class CountVowelConsonant {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a String : ");
+		String str = sc.nextLine();
+
+		int vowelCount = 0;
+		int cosntCount = 0;
+
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+
+			if (!((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')))
+				continue;
+
+			ch = Character.toLowerCase(ch);
+
+			if (ch == 'a' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'e')
+				vowelCount++;
+			else
+				cosntCount++;
+
+		}
+
+		System.out.println("VowelCount : " + vowelCount + "\nConsantCount : " + cosntCount);
+
+	}
+
+}
+Output - 
+Enter a String :
+Yogesh
+VowelCount : 2
+ConsantCount : 4
+
+Que-5)Write a program to count words in a sentence.
+
+import java.util.Scanner;
+
+class CountWord {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter a Sentence : ");
+		String sen = sc.nextLine();
+
+		String[] strArr = sen.split("\\s+");
+
+		System.out.println("CountWord : " + strArr.length);
+
+	}
+}
+
+Output - 
+Enter a Sentence :
+java is object-orient programming language
+CountWord : 5
+
+Github Link - https://github.com/YogeshPathade01/Java_Coding_Questtions.git		    

@@ -1,0 +1,155 @@
+Assignment-14
+
+Part -A
+
+Que-1)How does HashMap work internally?
+HashMap works by storing data in the form of key–value pairs. Internally, it has many buckets. When you put a value into a HashMap, it first takes the key and converts it into a number called a hash. This hash number decides which bucket the value will go into. If the bucket is empty, the value is stored directly there. If the bucket already has some data, then the new value is stored in the same bucket along with the existing data (this situation is called a collision). To manage collisions, HashMap first stores values in a list, and if too many values are stored in one bucket, it changes that list into a tree to make searching faster. When you want to get a value, HashMap again uses the key to find the correct bucket and then searches inside it to return the value. This direct access to buckets is the reason why HashMap is very fast.
+
+Que-2)What is load factor in HashMap?
+Load factor in HashMap decides how full the HashMap can get before it resizes.
+Default load factor is 0.75, meaning when 75% of the HashMap is filled, its size increases to keep performance fast.
+
+Que-3)What are generics in Java?
+Generics in Java are used to make code type-safe and reusable by allowing you to specify the data type at the time of use. Instead of working with any object and doing type casting later, generics let Java check the data type at compile time, which helps prevent runtime errors. For example, when you use a generic class like ArrayList<String>, it ensures that only String values can be stored in the list. This makes the code cleaner, safer, and easier to understand because you don’t need to manually convert objects to a specific type.
+
+Que-4)Why are generics used?
+Generics are used in Java to make code type-safe, reusable, and easier to maintain. They allow Java to check data types at compile time, which helps prevent runtime errors like ClassCastException. Generics also remove the need for explicit type casting, making the code cleaner and more readable. By using generics, the same class or method can work with different data types while still ensuring that only the correct type of data is used.
+
+Que-5)What is type safety?
+Type safety means making sure that only the correct type of data is used. It helps Java catch errors at compile time and prevents runtime problems like wrong type usage.
+
+Part -B
+
+
+Que-1)Write a program to iterate HashSet using for-each loop.
+import java.util.HashSet;
+
+public class IterateHashSet {
+ 	public static void main(String[] args) {
+ 		HashSet<String> set = new HashSet<String>();
+ 		set.add("Apple");
+ 		set.add("Banana");
+ 		set.add("Cherry");
+ 		set.add("Date");
+ 		set.add("Elderberry");
+
+ 		System.out.println("Iterating using for-each loop:");
+ 		for (String x : set) {
+ 			System.out.println(x);
+ 		}
+ 	}
+}
+Output-
+Iterating using for-each loop:
+Apple
+Cherry
+Date
+Elderberry
+Banana
+
+QUE-2)Write a program to convert HashSet to ArrayList.
+import java.util.ArrayList;
+import java.util.HashSet;
+
+public class ConvertHashSetToArrayList {
+ 	public static void main(String[] args) {
+ 		HashSet<Integer> set = new HashSet<>();
+ 		set.add(10);
+ 		set.add(20);
+ 		set.add(30);
+ 		set.add(40);
+ 		set.add(50);
+
+ 		ArrayList<Integer> arr = new ArrayList<Integer>(set);
+
+ 		System.out.println("ArrayList elements:");
+ 		for (Integer x : arr) {
+ 			System.out.println(x);
+ 		}
+ 	}
+}
+
+Output -
+ArrayList elements:
+50
+20
+40
+10
+
+Que-3)Write a program to check if a HashSet contains an element.
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class CheckElementInHashSet {
+ 	public static void main(String[] args) {
+ 		Scanner sc = new Scanner(System.in);
+ 		HashSet<Integer> set = new HashSet<>();
+ 		System.out.println("Enter a N:");
+ 		int n = sc.nextInt();
+ 		for (int i = 0; i < n; i++) {
+ 			set.add(sc.nextInt());
+ 		}
+
+ 		System.out.println("Enter a checkNum :");
+ 		int checkNum = sc.nextInt();
+
+ 		if (set.contains(checkNum))
+ 			System.out.println("Found !!");
+ 		else
+ 			System.out.println("Not Found !!");
+
+ 	}
+}
+
+Que-4)Write a program to create and iterate a HashMap.
+import java.util.HashMap;
+import java.util.Map.Entry;
+
+public class HashMapOp {
+ 	public static void main(String[] args) {
+ 		HashMap<Integer, String> hm = new HashMap<>();
+ 		hm.put(111, "Yogesh");
+ 		hm.put(112, "Shivam");
+ 		hm.put(113, "Om");
+ 		hm.put(114, "Mayur");
+ 		hm.put(115, "Kishor");
+
+ 		for (Entry<Integer, String> x : hm.entrySet()) {
+ 				System.out.println(x);
+ 		}
+
+ 	}
+}
+
+Output -
+112=Shivam
+113=Om
+114=Mayur
+115=Kishor
+111=Yogesh
+
+Que-5)Write a program to find union and intersection using Set.
+
+import java.util.HashSet;
+import java.util.List;
+
+public class HashMapOp {
+ 	public static void main(String[] args) {
+ 		HashSet<Integer> set1 = new HashSet<>();
+ 		HashSet<Integer> set2 = new HashSet<>();
+ 		set1.addAll(List.of(10, 20, 30, 40));
+ 		set2.addAll(List.of(30, 40, 50, 60));
+
+ 		HashSet<Integer> union = new HashSet<>(set1);
+ 		union.addAll(set2);
+
+ 		HashSet<Integer> inters = new HashSet<>(set1);
+ 		inters.retainAll(set2);
+
+ 		System.out.println("Set1 : " + set1);
+ 		System.out.println("Set2 : " + set2);
+ 		System.out.println("Union : " + union);
+ 		System.out.println("Intersection : " + inters);
+
+ 	}
+}

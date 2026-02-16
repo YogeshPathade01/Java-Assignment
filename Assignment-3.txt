@@ -1,0 +1,182 @@
+Assignment-3
+
+Part - 1
+
+Que-1)Explain single, multilevel, and hierarchical inheritance. 
+	Single inheritance - a single class inherits from one parent class that is single inheritance.
+	Multilevel inheritance - a single class inherits from one parent class that is single inheritance.
+	hierarchical inheritance - a single class inherits from one parent class that is single inheritance.
+
+Que-2)What is polymorphism?
+       polymorphism means one entity can have many forms. In Java, it allows the same method name to behave differently for different objects. 
+       there are two types of polymorphism: compile-time polymorphism and runtime polymorphism. 
+       compile-time polymorphism where method call is resolved at compile time based on reference, and it can be achieved by method overloading.
+       runtime polymorphism in which method call is resolved at runtime based on actual object. It can be achieved by method overriding.
+
+Que-3)Difference between compile-time and runtime polymorphism. 
+	Compile-time polymorphism -
+		-compile-time polymorphism in which method call is resolved at compile time based on reference type and method signature.
+		-it is also known as static binding. 
+		-it is achieved using method overloading.
+		-inheritance is not required in compile-time polymorphism.
+		-it provide fast execution because method call is resolved at compile time.
+
+        Runtime polymorphism-
+        	-runtime polymorphism in which the method call is resolved at runtime based on the actual object type. 
+		-It is also known as dynamic binding. 
+		-It is achieved using method overriding.
+		-inheritance is required in runtime polymorphism.
+		-it is slower than compile-time polymorphism because method call is resolved at runtime.
+
+Que-4)What is method overloading? 
+	Method Overloading in which multiple methods with the same name but different parameter list in scope. 
+	in method overloading, method call is resolved at compile time based on reference type. 
+	it is also called compile-time polymorphism or static binding.
+
+Que-5)What is method overriding? 
+	Method overriding in which child class provides implementation of parent class method, using the same method name and same parameter list.
+ 	in method overriding, the return type must be covariant.
+	method cannot be private, static, or final for method overriding.
+        in overriding, access modifiers cannot be weakened but they can be widened.
+        if a child class method throws a checked exception, the parent class method must throw the same exception. there is no restriction for unchecked exceptions.
+        The method call is resolved at runtime based on the actual object type.
+	it is also called runtime polymorphism or dynamic binding.
+
+
+Part - 2
+
+
+Que-1)Write a program to find the sum of digits of a number. 
+import java.util.Scanner;
+
+public class SumOfDigitOfNum {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		int n = scanner.nextInt();
+		int sum = 0;
+
+		while (n != 0) {
+			int digit = n % 10;
+			sum += digit;
+			n /= 10;
+		}
+
+		System.out.println("Sum of digits: " + sum);
+	}
+
+}
+
+Output - 
+Enter a number: 123
+Sum of digits: 6
+
+Que-2)Write a program to check if a number is prime.
+import java.util.Scanner;
+import java.lang.Math;
+
+public class IsPrime {
+	public static void main(String... args){
+		
+		int n;
+		boolean flag = true;
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter a Number : ");
+		n = sc.nextInt();
+
+		if(n == 1){
+			System.out.println("Not Prime Number !!");
+			System.exit(0);
+		}
+		
+		if(n == 2 || n == 3){
+			System.out.println("Not Prime Number !!");
+			System.exit(0);
+		}
+
+		if(n%2 == 0 || n%3 == 0){
+			System.out.println("Not Prime Number !!");
+			System.exit(0);
+		}else{
+			for(int i = 5; i<= Math.sqrt(n); i+=6){
+				if(n%i == 0 || n%(i+2) == 0){
+					flag = false;
+					break;
+				}
+			}	
+			if(flag)
+				System.out.println("Prime Number !!");
+			else
+				System.out.println("Not Prime Number !!");
+		}
+	}
+}
+
+Output -
+Enter a Number : 31
+Prime Number !! 
+ 
+Que-4)Write a program to print multiplication table of a number.
+import java.util.Scanner;
+
+public class MultiplicationTable {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		int n = scanner.nextInt();
+		for (int i = 1; i <= 10; i++) {
+			System.out.println(n * i);
+		}
+
+	}
+
+}
+
+Output - 
+Enter a number: 12
+12
+24
+36
+48
+60
+72
+84
+96
+108
+120
+
+Que-5)Write a program to count the number of digits in a number. 
+import java.util.Scanner;
+
+public class CountDigitOfNum {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a number: ");
+		int n = sc.nextInt();
+		int count = 0;
+		while (n > 0) {
+			count++;
+			n /= 10;
+		}
+
+		System.out.println("The Total Digit of Number : " + count);
+	}
+
+}
+
+output - 
+Enter a number: 1342
+The Total Digit of Number : 4
+
+
+Github link -
+	https://github.com/YogeshPathade01/Java_Coding_Questtions.git
+

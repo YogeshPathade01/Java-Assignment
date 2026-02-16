@@ -1,0 +1,268 @@
+Assignment-8
+
+Part-A
+
+Que-1)How are Strings stored in memory?
+In Java, Strings are stored in memory in two main ways: the String Constant Pool and the heap.
+When a String is created using a string literal, the JVM first checks the String Constant Pool. If the same value already exists, it reuses that object; otherwise, it creates a new one in the pool.
+When a String is created using the new keyword, a new object is always created in heap memory, and a String with the same value may already exist in the String Constant Pool. This approach helps save memory and improves performance.
+
+Que-2)What is an array in Java?
+Array is a fixed-size collection of similar type element. Each element stored at specific index. Index start from 0 to n-1.
+Array allows to store multiple values under single name. The size of an array must be specified at time of creation. Otherwise, we will get compile time error.
+Java allows an array of size 0, but negative size is not allowed. If we are passing negative size, then we will get negativearraysizeexception. The maximum array size is limited by int range.
+
+Que-3)How do you declare and initialize an array?
+Array declaration - in array declaration, we specifying the type, name
+		    dataType[] arrayName; or
+		    dataType arrayName[];
+
+Array initialize - 
+		    int[] a = new int[4];
+                    a[0] = 10;
+                    a[1] = 20;
+         
+
+
+Que-4)What are jagged arrays?
+A jagged array in Java is a multi-dimensional array in which each row can have a different number of columns.
+Types :  two types.
+1)	Irregular Array.
+2)	Ragged Array.
+Why it called jagged array :- In a normal 2D array, all rows have the same length, but in jagged array rows have unequal array.
+
+Que-5)What is an ArrayIndexOutOfBoundsException?
+An ArrayIndexOutOfBoundsException is a runtime exception in Java that happens when you try to access an array element using an invalid index.
+public class Test {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30};
+
+        System.out.println(arr[3]); // it throw ArrayIndexOutOfBoundsException
+    }
+}
+
+
+Part-B
+
+Que-1)Write a program to count even and odd numbers in an array.
+import java.util.Scanner;
+
+public class CountEvenOdd {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a N : ");
+		int n = sc.nextInt();
+		int evenCount = 0;
+		int oddCount = 0;
+		int[] arr = new int[n];
+		System.out.println("Enter array elements : ");
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+
+			if (arr[i] % 2 == 0)
+				evenCount++;
+			else
+				oddCount++;
+		}
+
+		System.out.println("EvenCount : " + evenCount);
+		System.out.println("OddCount : " + oddCount);
+
+	}
+}
+
+Output - 
+Enter a N : 5
+Enter array elements : 
+1
+2
+3
+4
+5
+EvenCount : 2
+OddCount : 3
+
+Que-2)Write a program to copy all elements of one array to another.
+import java.util.Scanner;
+
+public class CopyEleToAnother {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a N :");
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+		int[] copyArr = new int[n];
+		System.out.println("Enter array Elements : ");
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+
+		}
+		System.arraycopy(arr, 0, copyArr, 0, arr.length);
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(copyArr[i]);
+		}
+
+	}
+
+}
+
+OUTPUT - 
+Enter a N :
+4
+Enter array Elements :
+1
+2
+3
+4
+After copy Element :
+1
+2
+3
+4
+
+Que-3)Write a program to search an element in an array.
+import java.util.Scanner;
+
+public class SearchElement {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a N : ");
+		int n = sc.nextInt();
+		System.out.println("Enter a search Elemnet : ");
+		int search = sc.nextInt();
+		boolean flag = true;
+		int[] arr = new int[n];
+		System.out.println("Enter Elements : ");
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == search) {
+				System.out.println(arr[i] + " Fountd at index: " + i);
+				flag = false;
+				break;
+			}
+		}
+		if (flag)
+			System.out.println("Not Found !!");
+
+	}
+
+}
+
+output - 
+Enter a N :
+3
+Enter a search Elemnet :
+1
+Enter Elements :
+2
+3
+4
+Not Found !!
+
+Que-4)Write a program to merge two arrays.
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class MergeTwoArrays {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter first Array size  : ");
+		int fn = sc.nextInt();
+		int[] first = new int[fn];
+		System.out.println("Enter First Element : ");
+		for (int i = 0; i < fn; i++) {
+			first[i] = sc.nextInt();
+		}
+		System.out.println("Enter Second Array size  : ");
+		int sn = sc.nextInt();
+		int[] second = new int[sn];
+		System.out.println("Enter Second Element : ");
+		for (int i = 0; i < sn; i++) {
+			second[i] = sc.nextInt();
+		}
+
+		int[] merged = new int[fn + sn];
+		
+		System.arraycopy(first, 0, merged, 0, fn);
+		System.arraycopy(second, 0, merged, fn, sn);
+		
+		System.out.println("After Merging Two Arrays : ");
+		for (int i : merged) {
+			System.out.println(i);
+		}
+
+	}
+}
+
+Output - 
+Enter first Array size  :
+3
+Enter First Element :
+11 22 33
+Enter Second Array size  :
+4
+Enter Second Element :
+44 55 66 77
+After Merging Two Arrays :
+11
+22
+33
+44
+55
+66
+77
+
+Que-5)Write a program to remove duplicate elements from an array.
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class RemoveDuplicates {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a N : ");
+		int n = sc.nextInt();
+		int[] arr = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			arr[i] = sc.nextInt();
+		}
+		for (int k = 0; k < n; k++) {
+			for (int i = k + 1; i < n; i++) {
+				if (arr[i] == arr[k]) {
+					for (int j = i; j < n - 1; j++) {
+						arr[j] = arr[j + 1];
+					}
+					n--;
+					i--;
+
+				}
+			}
+		}
+		System.out.println("After Removing Elements :");
+		for (int i = 0; i < n; i++) {
+			System.out.println(arr[i]);
+		}
+	}
+}
+
+Output - 
+Enter a N :
+5
+11
+22
+33
+22
+11
+After Removing Elements :
+11
+22
+33
+
+Github Link - https://github.com/YogeshPathade01/Java_Coding_Questtions.git
+
+
+		     

@@ -1,0 +1,224 @@
+
+                           PART A – THEORY QUESTIONS
+
+Q1. What is Java and why is it platform-independent? 
+
+Ans:-1)It is a programming language developed in 1995 by Sum Microsystem(now own by Oracle) .
+2)Java is design and created by James Gosling.
+3)It is a pure object oriented and High level programming language.
+4)The current stable version of java is java25.
+5)Use for developed Applications like web app,mobile app,Desktop app etc. 
+
+PLATFORM  INDEPENDANT:- 
+1)Platform means the Operating system.
+2)The java program can execute on any Operating system.
+3)Java follows the rule:
+“Write Once, Run Anywhere” (WORA).
+
+
+Q2. Explain the features of Java. 
+
+Ans:-1)Platfrom independant
+-Platform means Operating System.The java program can execute on any Operating system.
+-Java follows the rule:
+"Write Once, Run Anywhere"(WORA).
+
+2)Pure object oriented
+-Due to the design the policy of java everything in java is consider as an object.
+
+3)Simple
+-Java is easy to learn and use.
+-Syntax is similar to C/C++.
+-No complex features like pointers.
+-Automatic memory management .
+
+4)Secure
+-No pointer usage.
+-JVM checks bytecode before execution.
+-Strong exception handling.
+
+5)Robust
+-Due to the feature like Automatic garbage collection,Exception handling,Type checking.
+
+6)Multithreaded
+-Java supports multithreading.
+-Multiple tasks can run at the same time.
+-Improves performance.
+
+
+Q3) What is the difference between JDK, JRE, and JVM? 
+
+Ans:1)JDK(Java Development Kit)
+-It is a software development kit used to build java application
+-It contains the JRE and set of developments tools.
+-Required by developers to write, compile and debug code.
+-Platform dependent.
+
+2)JRE(Java Runtime Environment)
+-It provides an environment to run java program but does not include development tools.
+-It contains JVM and libraries.
+-Does not support compilation and debugging.
+
+3)JVM(Java Virtual Machine)
+-JVM is a core excution engine of java.
+-It is responsible for convrting bytecode into machine code.
+
+
+Q4)What is bytecode in Java? 
+
+Ans:-When the source code is compiled by compiler then the .class file is generated that file is called Bytecode .
+-That bytecode is given to the JVM and JVM is responsible to execute the .class file.
+-Bytecode is platform independent which run on any platform hence java is platform independent.
+
+
+Q5)Explain the concept of object-oriented programming. 
+1)Class:-
+-Class is user defined data type.
+-A class  contains variables,methoda,constructor,non-static blocks and static blocks.
+-A class can not be private but inner class can be private/public /protected.
+-Class is not allocate memory when it is defined.
+-Class is a logical entity.
+
+2)Object:-
+- An object is an  instance of a class .
+-An object is allocated memory when it is created.
+-An object is a physical entity.
+-We can create multiple objects of a class.
+-To use the concept of class we have to create the object of that class.
+
+3)Inheritance
+-One class aquired the properties of another class.
+-Using inheritance we can reuse all methods and data members in next class.
+-protected access modifier is used.
+-extends keyword is used for provide things from super to subclass.
+-Their are 3  types of inheritance in java
+1)Single Inheritance  2)Multilevel Inheritance  3)Hierachical Inheritance
+-But java does not support Multiple Inheritance ,but we can achieve it by using Interface.
+
+4)Polymorphism:-
+-Polymorphism means one method having multiple forms.
+-Poly is a greek word mean many and morphic means form.
+-Their are two types of Ploymorphism 
+-1)overloading :-It happens at compile time also called as static which required same name,same scope and different parameter.
+-2)overriding:-It happens at run time also called as dynamic which required same name,same prototype/header/signature and different scope.
+-It needs inheritance.
+
+5)Abstraction:-
+-We know what but don't know how.
+-It is also called as data hiding.
+-Using abstract class and interface we can achieve.
+-In abstraction we are hide a logic in between methods.
+-'abstract' keyword is used.
+-Hiding implementation details and showing only what is necessary.
+-Interface supports 100% abstraction.
+
+6)Encapsulation:-
+-Encapsulation means wrapping data and methods together into a single unit.
+-To achieved tight bond Encapsulation the data members have to be made as private.
+
+
+		PART B – PROGRAMMING QUESTIONS
+
+
+Q1)Write a program to print "Hello, Java!" 
+
+Ans:-public class Hello{
+	
+	public static void main(String[] args){
+		System.out.println("Hello,Java!");
+	}
+}
+
+
+Q2)Write a program to add two numbers. 
+
+Ans:-import java.util.Scanner;
+	public class Addition{
+	
+		public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+		int a,b;
+
+		System.out.println("Enter value of a:");
+		a=sc.nextInt();
+
+		System.out.println("Enter value of b:");
+		b=sc.nextInt();
+
+		System.out.println("Addition is:"+(a+b));
+	}
+}
+
+
+Q3)Write a program to check whether a number is even or odd. 
+
+Ans:import java.uti.Scanner;
+	public class EvenOdd{
+		public static void main(String[] args){
+
+		System.out.println("Enter a Number :");
+		Scanner sc=new Scanner(System.in);
+		int num=sc.nextInt();
+
+		if(num % 2==0){
+			System.out.println("Even");
+		}
+		else{
+			System.out.println("Odd");
+		}
+	}
+}
+
+
+Q4)Write a program to find the largest of three numbers. 
+
+Ans:-import java.util.Scanner;
+	public class Max{
+
+		public static void main(String[] args){
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter 3 values :");
+		int a=sc.naxtInt(); 
+		int b=sc.naxtInt(); 
+		int c=sc.naxtInt(); 
+
+		b=a>b? a:b;
+		b=c>b?c:b;
+
+		System.out.println("Max is :"+b);
+	}
+}
+
+
+Q5)Write a program to check if a number is positive, negative, or Zero.
+
+Ans:-
+import java.util.Scanner;
+public class Pos{
+
+	public static void main(String[] args){
+
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter a number :");
+	int num=sc.nextInt();
+
+	if(num==0){
+		System.out.println("Number is Zero");
+	}
+	else if(num>0){
+		Systen.out.println("Number is Positive");
+	}
+	else if(num<0){
+		System.out.println("Number is Negative");
+	}
+	else{
+		System.out.println("Invalid Number !!");
+	}
+    }
+}
+
+
+
+	
+
+

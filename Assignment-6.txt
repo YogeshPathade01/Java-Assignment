@@ -1,0 +1,212 @@
+Assignment-6
+
+Part-A
+
+Que-1)What is the main method’s signature and why is it static?
+	public static void main(String[] args)
+	main method is enrty point of program, it is static method so jvm called it without creating object by class name.
+
+Que-2)What are wrapper classes in Java?
+	wrapper class which convert primitive type to object.
+	there are eight types of wrapper class: Integer, Byte, Short, Long, Double, Float, Character, Boolean.
+	wrapper class is  immutable  which means once object is created , it cannot be modified.
+	wrapper class is final class, means the wrapper class cannot be inherited by another class.
+	wrapper class support autoboxing and unboxing.
+	wrapper class implement comparable interface.  
+
+Que-3)Difference between equals() and == operator.
+	equals() - equal method belong to the Object class. It is used to compare the content of two objects.
+		   it returns true if both objects content is same, otherwise false.
+		   it can only work with objects, not primitives.
+		   equal method defined inside Object class, it compare objects using == operator.
+		   to compare object content, it must be overridden in a class.
+
+	== : == is operaotr used to compare reference of object.
+	     If both reference point to the same object, then it will return true, otherwise false.
+	     it can wokk with primitive and object
+
+Que-4)What is the final keyword used for?
+	final means once created, it cannot be modified.
+	it is applicable for variable, method, and class.
+	if variable declared as a final, then once assigned a value, it cannot be changed. It can work for instance, static, and local variables.
+	if a method declared as a final, then it cannot be overridden by subclasses.
+	if a class declared as a final, then it cannot be inherited by another class.
+
+Que-5)Difference between final, finally, and finalize.
+
+	final - final means once created, it cannot be modified.
+		it is applicable for variable, method, and class.
+		if variable declared as a final, then once assigned a value, it cannot be changed. It can work for instance, static, and local variables.
+		if a method declared as a final, then it cannot be overridden by subclasses.
+		if a class declared as a final, then it cannot be inherited by another class.
+
+	finally - finally is  block of code that is always executed whether the exception occur or not.
+		  It is used to perform necessary cleanup tasks such as closing file, releasing resource.
+	
+	finalize -  finalize is a method of object class, it is called by garbage collector before destroying an object.
+		    It is used to cleanup activities such as releasing resource.
+
+Part -B
+
+Que-1)Write a program to find frequency of each character in a String.
+import java.util.HashMap;
+import java.util.Scanner;
+
+class CountFreOfChar {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter a string: ");
+		String str = sc.nextLine();
+
+		HashMap<Character, Integer> freq = new HashMap<>();
+
+		for (char ch : str.toCharArray()) {
+			if (ch == ' ')
+				continue;
+
+			if (freq.containsKey(ch)) {
+				freq.put(ch, freq.get(ch) + 1);
+			} else {
+				freq.put(ch, 1);
+			}
+
+		}
+
+		for (char ch : freq.keySet()) {
+			System.out.println(ch + ": " + freq.get(ch));
+		}
+
+	}
+}
+
+Output - 
+Enter a string: 
+hollo
+h: 1
+l: 2
+o: 2
+
+Que-2)Write a program to remove whitespace from a String.
+
+import java.util.Scanner;
+
+class RemoveWhitespaces {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a string: ");
+		String str = sc.nextLine();
+		String result = str.replaceAll("\\s+", "");
+		System.out.println("after removing whitespaces: " + result);
+
+	}
+}
+Output - Enter a string: java is object-orient programming
+after removing whitespaces: javaisobject-orientprogramming
+
+Que-3)Write a program to remove duplicates from a String.
+import java.util.Scanner;
+
+public class RemoveDuplicateFromString {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Enter a string: ");
+		String str = sc.nextLine();
+
+		String result = "";
+
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+			if (result.indexOf(ch) == -1) {
+				result += ch;
+			}
+		}
+		System.out.println("after removing duplicates: " + result);
+
+	}
+
+}
+Output - 
+utput - 
+Enter a string:
+hello worrld
+after removing duplicates: helo wrd
+
+Que-4)Write a program to find the first non-repeated character in a String.
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class FirstNonRepChar {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a string: ");
+		String str = sc.nextLine();
+
+		str = str.toLowerCase();
+
+		Map<Character, Integer> freq = new LinkedHashMap<>();
+
+		for (char c : str.toCharArray()) {
+			if (c != ' ') {
+				freq.put(c, freq.getOrDefault(c, 0) + 1);
+			}
+		}
+
+		char firstNonRep = '\0';
+		for (Map.Entry<Character, Integer> entry : freq.entrySet()) {
+			if (entry.getValue() == 1) {
+				firstNonRep = entry.getKey();
+				break;
+			}
+		}
+
+		if (firstNonRep != '\0') {
+			System.out.println("First non-repeated character: " + firstNonRep);
+		} else {
+			System.out.println("No non-repeated character found.");
+		}
+
+	}
+}
+
+output - 
+Enter a string: hello World
+First non-repeated character: h
+
+
+Que-5)Write a program to find substring in a String.
+import java.util.Scanner;
+
+public class FindSubstring {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("Enter a string: ");
+		String str = sc.nextLine();
+		
+		System.out.print("Enter a substring: ");
+		String substr = sc.nextLine();
+		
+		if(str.contains(substr)) {
+			System.out.println("Find !!");
+		} else {
+			System.out.println("Not Find !!");
+		}
+	}
+}
+
+
+
+Output - 
+Enter a string: yogesh
+Enter a substring: gesh
+Find !!
+
+Github Link - https://github.com/YogeshPathade01/Java_Coding_Questtions.git		    
+
+
+	
